@@ -1,9 +1,11 @@
 package com.kennor.demo.controller;
 
 import com.kennor.demo.common.PageResult;
+import com.kennor.demo.common.Result;
 import com.kennor.demo.config.WxConfig;
 import com.kennor.demo.model.User;
 import com.kennor.demo.service.UserService;
+import com.kennor.demo.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,14 +33,14 @@ public class IndexController {
     }
 
     @GetMapping(value = "userPage")
-    public  PageResult<User> getUserPage(@RequestParam(name = "name",required = false) String name,@RequestParam(name = "phone",required = false) String phone
+    public  Result getUserPage(@RequestParam(name = "name",required = false) String name,@RequestParam(name = "phone",required = false) String phone
     ,@RequestParam(name = "page",defaultValue = "1") Integer page,@RequestParam(name="size",defaultValue = "10") Integer size){
        page--;
        User user = new User();
        user.setName(name);
        user.setPhone(phone);
        PageResult<User> byPage = userService.findByPage(user, page, size);
-       return byPage;
+        return ResultUtil.success(byPage);
     }
 
     @GetMapping(value = "userCount")
