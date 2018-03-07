@@ -1,0 +1,22 @@
+#正式环境配置文件
+server:
+    port: 8081
+    servlet:
+      context-path: /demo
+#数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/5184
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+wx:
+   id: 123321
+   key: abcdefg
+#日志打印
+logging:
+  config: classpath:logback-dev.xml

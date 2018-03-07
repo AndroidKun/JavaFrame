@@ -1,0 +1,4 @@
+#设置环境配置文件
+spring:
+  profiles:
+    active: test

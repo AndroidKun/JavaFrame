@@ -1,0 +1,23 @@
+#测试环境配置文件
+server:
+    port: 8080
+    servlet:
+      context-path: /demo
+#数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/5184
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true #显示sql语句
+wx:
+   id: 123456
+   key: ABCDEFG
+
+#日志打印
+logging:
+  config: classpath:logback-test.xml
